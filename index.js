@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
-
+const cors = require("cors");
 const app = express();
 
 // Database connection
@@ -14,6 +14,14 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
+
+const corsOptions = {
+  origin: "http://localhost:3000", // Allow requests from this origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true, // Allow credentials (cookies, headers)
+};
+
+app.use(cors(corsOptions));
 
 // Middleware
 app.use(bodyParser.json());
