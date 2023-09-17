@@ -21,7 +21,7 @@ const corsOptions = {
   credentials: true, // Allow credentials (cookies, headers)
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Middleware
 app.use(bodyParser.json());
